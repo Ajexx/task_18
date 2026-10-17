@@ -123,29 +123,14 @@ foreach (IPAddress ip in hostEntry.AddressList)
 
 //  ===== Third part of the code =====
 
-//  1) Not using verification
+//  1) Using verification
 
 Console.Write("Enter domain name: ");
 string domainName = Console.ReadLine();
-
-//  2) Not using verification
-
-IPHostEntry domainEntry = Dns.GetHostEntry(domainName);
-
-//  3) Not using verification
-
-foreach (IPAddress ip in domainEntry.AddressList)
-{
-    Console.WriteLine($"IP Address: {ip}");
-}
-
-//  4) Using verification
-
-Console.WriteLine("Using verification...");
 try
 {
-    IPHostEntry domainEntry_2 = Dns.GetHostEntry(domainName);
-    foreach (IPAddress ip in domainEntry_2.AddressList)
+    IPHostEntry domainEntry = Dns.GetHostEntry(domainName);
+    foreach (IPAddress ip in domainEntry.AddressList)
     {
         Console.WriteLine($"IP Address: {ip}");
     }
